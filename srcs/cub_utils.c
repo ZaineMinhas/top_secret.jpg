@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_display.c                                      :+:      :+:    :+:   */
+/*   cub_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/25 15:42:04 by zminhas          ###   ########.fr       */
+/*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
+/*   Updated: 2021/03/25 14:25:59 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	ft_draw_pixel(t_img *img, int x, int y, int color)
+void	ft_reset(t_move *move)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
-}
-
-void	ft_draw_player(t_cub *var, int color)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < 30)
-	{
-		j = -1;
-		while (++j < 30)
-			ft_draw_pixel(var->img, var->p_x + i - 15, var->p_y + j - 15, color);
-	}
+	move->w = 0;
+	move->a = 0;
+	move->s = 0;
+	move->d = 0;
+	move->left = 0;
+	move->right = 0;
 }

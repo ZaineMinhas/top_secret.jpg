@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/24 18:40:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/25 17:15:42 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ int main(void)
 {
 	t_cub var;
 
+	var.p_x = 1920 / 2;
+	var.p_y = 1080 / 2;
+	var.rot = 90;
 	get_info(&var);
-	ft_draw_pixel(var.img, 5, 5, 0x00FF0000);
+	ft_draw_player(&var, 0xFF00FF);
 	mlx_put_image_to_window(var.mlx_ptr, var.win_ptr, var.img->img, 0, 0);
+	mlx_hook(var.win_ptr, 2, 1L<<0, ft_go, &var);
 	mlx_loop(var.mlx_ptr);
 	return (0);
 }

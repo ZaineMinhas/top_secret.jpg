@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub_display.c                                      :+:      :+:    :+:   */
+/*   cub_look.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/25 15:42:04 by zminhas          ###   ########.fr       */
+/*   Created: 2021/03/25 17:18:23 by zminhas           #+#    #+#             */
+/*   Updated: 2021/03/25 17:21:25 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	ft_draw_pixel(t_img *img, int x, int y, int color)
+void	look_left(t_cub *var)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
+	var->rot += 5;
+	var->rot %= 360;
 }
 
-void	ft_draw_player(t_cub *var, int color)
+void	look_right(t_cub *var)
 {
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < 30)
-	{
-		j = -1;
-		while (++j < 30)
-			ft_draw_pixel(var->img, var->p_x + i - 15, var->p_y + j - 15, color);
-	}
+	var->rot -= 5;
+	var->rot %= 360;
 }

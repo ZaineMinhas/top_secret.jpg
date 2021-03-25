@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/02/15 15:25:10 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/25 14:51:17 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,18 @@ int g_map[10][20] = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 					{1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1},
 					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
+typedef struct s_imglist
+{
+	void	*img;
+	char	*addr;
+	int	bits_per_pixel;
+	int	line_length;
+	int	endian;
+}				t_img;
+
 typedef struct	s_cublist
 {
+	t_img	*img;
 	float	p_x;
 	float	p_y;
 	int		rot;

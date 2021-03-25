@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/24 18:45:28 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/25 17:50:18 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,21 @@ typedef struct s_imglist
 	int	endian;
 }				t_img;
 
+typedef struct s_movelist
+{
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	left;
+	int	right;
+
+}				t_move;
+
 typedef struct	s_cublist
 {
 	t_img	*img;
+	t_move	*move;
 	float	p_x;
 	float	p_y;
 	int		rot;
@@ -65,5 +77,36 @@ void	get_info(t_cub *var);
 */
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
+void	ft_draw_player(t_cub *var, int color);
+
+/*
+**	key fonctions
+*/
+
+int	ft_go(int key, t_cub *var);
+
+/*
+**	look fonctions
+*/
+
+void	look_left(t_cub *var);
+void	look_right(t_cub *var);
+
+/*
+**	move fonctions
+*/
+
+void	move_check(t_cub *var);
+void	move_up(t_cub *var);
+void	move_down(t_cub *var);
+void	move_left(t_cub *var);
+void	move_right(t_cub *var);
+
+
+/*
+**	utils fonctions
+*/
+
+void	ft_reset(t_move *move);
 
 #endif

@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include "cub3d.h"
 
+void	get_info(t_cublist *var)
+{
+	var->img = malloc(sizeof(t_img));
+	var->mlx_ptr = mlx_init();
+	var->win_ptr = mlx_new_window(var->mlx_ptr, 1920, 1080, "la fenetre");
+	var->img->img = mlx_new_image(var->mlx_ptr, 1920, 1080);
+	var->img->addr = mlx_get_data_addr(var->img->img, &var->img->bits_per_pixel,
+	&var->img->line_length, &var->img->endian);
+}
+
+void	ft_draw_pixel(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+    *(unsigned int*)dst = color;
+}
+
 void ft_reset(void *mlx_ptr, void *win_ptr)
 {
 	int x;
@@ -29,6 +47,8 @@ void ft_wall(t_cublist var, int wall, int x, int y)
 		j = -1;
 		while (++j < 98)
 			mlx_pixel_put(var.mlx_ptr, var.win_ptr, x * 100 + i + 1, y * 100 + j + 1, g_orange);
+			//ft_draw_pixel(var.img, x * 100 + i + 1, y * 100 + j + 1, g_orange);
+			//mlx_put_image_to_window(var.mlx_ptr, var.win_ptr, var.img->img, 0, 0);
 	}
 }
 
@@ -73,6 +93,8 @@ void ft_line(int color, t_cublist *var, float rot)
 		dx += cos(((float)var->rot + rot) * (M_PI / 180));
 		dy += sin(((float)var->rot + rot) * (M_PI / 180));
 		mlx_pixel_put(var->mlx_ptr, var->win_ptr, dx + var->p_x, var->p_y - dy, color);
+		//ft_draw_pixel(var->img, dx + var->p_x, var->p_y - dy, color);
+		//mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img->img, 0, 0);
 	}
 }
 
@@ -92,7 +114,7 @@ void ft_square(t_cublist *var, int color)
 	if (color)
 		color = g_white;
 	i = -45;
-	while (i < 46)
+	while (i <= 45)
 	{
 		i += 1;
 		ft_line(color, var, i);
@@ -194,7 +216,7 @@ int ft_go(int key, t_cublist *var)
 		ft_go_a(var);
 	else if (key == 1 /*s*/)
 		ft_go_s(var);
-	else if (key == 2 /*d*/)
+	if (key == 2 /*d*/)
 		ft_go_d(var);
 	return (0);
 }
@@ -206,8 +228,9 @@ int main(void)
 	var.p_x = 1920 / 3;
 	var.p_y = 1080 / 2;
 	var.rot = 90;
-	var.mlx_ptr = mlx_init();
-	var.win_ptr = mlx_new_window(var.mlx_ptr, 1920, 1080, "la fenetre");
+	//var.mlx_ptr = mlx_init();
+	//var.win_ptr = mlx_new_window(var.mlx_ptr, 1920, 1080, "la fenetre");
+	get_info(&var);
 	//ft_reset(var.mlx_ptr, var.win_ptr);
 	ft_map(var);
 	ft_square(&var, g_rose);

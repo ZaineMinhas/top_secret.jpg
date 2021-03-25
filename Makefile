@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/19 15:14:41 by zminhas           #+#    #+#              #
-#    Updated: 2021/03/24 18:42:58 by zminhas          ###   ########.fr        #
+#    Updated: 2021/03/25 17:19:23 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ RESET		= $(shell tput -Txterm sgr0)
 SRCS	=	cub3d.c\
 			srcs/cub_display.c\
 			srcs/cub_info.c\
+			srcs/cub_key.c\
+			srcs/cub_look.c\
+			srcs/cub_move.c\
+			srcs/cub_utils.c\
 			gnl/get_next_line_utils.c\
 			gnl/get_next_line.c
 
