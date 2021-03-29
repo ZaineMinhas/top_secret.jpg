@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/25 17:50:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/29 16:22:11 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,22 @@ typedef struct s_imglist
 	int	endian;
 }				t_img;
 
+typedef struct s_texturelist
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+}				t_tex;
+
+typedef struct s_colorlist
+{
+	char	*s;
+	int	*r;
+	int	*f;
+	int	*c;
+}				t_col;
+
 typedef struct s_movelist
 {
 	int	w;
@@ -49,6 +65,8 @@ typedef struct	s_cublist
 {
 	t_img	*img;
 	t_move	*move;
+	t_tex	*tex;
+	t_col	*col;
 	float	p_x;
 	float	p_y;
 	int		rot;
@@ -71,6 +89,14 @@ typedef struct	s_cublist
 */
 
 void	get_info(t_cub *var);
+int	get_no(char *line, t_cub *var);
+int	get_so(char *line, t_cub *var);
+int	get_we(char *line, t_cub *var);
+int	get_ea(char *line, t_cub *var);
+int	get_r(char *line, t_cub *var);
+int	get_s(char *line, t_cub *var);
+int	get_f(char *line, t_cub *var);
+int	get_c(char *line, t_cub *var);
 
 /*
 **	display fonctions
@@ -78,12 +104,14 @@ void	get_info(t_cub *var);
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 void	ft_draw_player(t_cub *var, int color);
+void	draw_wall(int wall, int index, int floor, t_cub *var);
 
 /*
 **	key fonctions
 */
 
 int	ft_go(int key, t_cub *var);
+int	ft_close(t_cub *var);
 
 /*
 **	look fonctions

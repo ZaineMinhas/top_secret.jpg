@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/25 17:15:42 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/29 15:25:42 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
 	t_cub var;
 
@@ -21,8 +21,8 @@ int main(void)
 	var.rot = 90;
 	get_info(&var);
 	ft_draw_player(&var, 0xFF00FF);
-	mlx_put_image_to_window(var.mlx_ptr, var.win_ptr, var.img->img, 0, 0);
 	mlx_hook(var.win_ptr, 2, 1L<<0, ft_go, &var);
+	mlx_hook(var.win_ptr, 17, 1L<<17, ft_close, &var);
 	mlx_loop(var.mlx_ptr);
 	return (0);
 }

@@ -6,11 +6,18 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:11:05 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/25 17:24:01 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/03/29 15:07:03 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int	ft_close(t_cub *var)
+{
+	(void)var;
+	exit(1);
+	return (0);
+}
 
 int	ft_go(int key, t_cub *var)
 {
