@@ -6,13 +6,13 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/29 15:25:42 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/01 20:13:53 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int main(void)
 {
 	t_cub var;
 

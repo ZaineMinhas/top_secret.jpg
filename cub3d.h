@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/29 16:22:11 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/01 20:29:47 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ typedef struct	s_cublist
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_ESC 53
+# define PLAYER_SIZE 30
+# define WALL_SIZE 50
+# define LINE_NUMBER 0
 
 /*
 **	info fonctions
@@ -104,6 +107,7 @@ int	get_c(char *line, t_cub *var);
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 void	ft_draw_player(t_cub *var, int color);
+void	ft_line(t_cub *var, int rot, int color);
 void	draw_wall(int wall, int index, int floor, t_cub *var);
 
 /*
