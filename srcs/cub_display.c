@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/06 15:07:30 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/06 15:16:32 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_line(t_cub *var, int rot, int color)
 	i = -1;
 	dx = 0;
 	dy = 0;
-	while (++i < 2555/* && !ft_is_wall(var->p_x + dx, var->p_y - dy)*/)
+	while (++i < LINE_SIZE/* && !ft_is_wall(var->p_x + dx, var->p_y - dy)*/)
 	{
 		dx += cos(((float)var->rot + rot) * (M_PI / 180));
 		dy += sin(((float)var->rot + rot) * (M_PI / 180));
