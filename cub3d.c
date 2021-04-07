@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/01 20:13:53 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/07 14:47:13 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ int main(void)
 
 // w = 13, a = 0, s = 1, d = 2, up = 126, left = 123, right = 124, down = 125
 
-// la commande : gcc -lmlx -framework OpenGL -framework AppKit cub3d.a && clear && ./a.out
+// la commande : make && make fclean && ./a.out
+
+// l'autre commande : gcc -lmlx -framework OpenGL -framework AppKit cub3d.a && clear && ./a.out
