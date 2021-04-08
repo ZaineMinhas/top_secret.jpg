@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/07 17:43:24 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/08 14:27:22 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_strlen_remix(char *str)
 
 	if (!str)
 		return (0);
+	i = 0;
 	while (str[i])
 	{
 		if (str[i] == '\t')

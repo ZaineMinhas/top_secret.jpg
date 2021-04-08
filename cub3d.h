@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/07 17:42:51 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/08 14:55:56 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # include <fcntl.h>
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
-
 
 typedef struct s_imglist
 {
@@ -71,7 +70,7 @@ typedef struct	s_cublist
 	float	p_x;
 	float	p_y;
 	int		rot;
-	int		**map;
+	int		**int_map;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }				t_cub;
@@ -86,9 +85,12 @@ typedef struct	s_cublist
 # define KEY_DOWN 125
 # define KEY_ESC 53
 # define PLAYER_SIZE 30
+# define PLAYER_SPEED 10
+# define ROT_SPEED 5
 # define WALL_SIZE 50
+# define LINE_LINE 1
 # define LINE_NUMBER 35
-# define LINE_SIZE 2500
+# define LINE_SIZE 1500
 
 /*
 **	info fonctions
@@ -110,7 +112,7 @@ int	get_c(char *line, t_cub *var);
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
 void	ft_draw_player(t_cub *var, int color);
-void	ft_line(t_cub *var, int rot, int color);
+void	ft_line(t_cub *var, float rot, int color);
 void	draw_wall(int wall, int index, int floor, t_cub *var);
 
 /*
