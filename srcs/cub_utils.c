@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/08 14:27:22 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/09 15:22:02 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_reset(t_move *move)
 
 int	ft_strlen_remix(char *str)
 {
-	int i;
+	int	i;
 
 	if (!str)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:32:52 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/08 14:38:16 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:47:28 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	move_up(t_cub *var)
 {
-	float dx;
-	float dy;
+	float	dx;
+	float	dy;
 
 	ft_draw_player(var, 0);
 	dx = cos((M_PI / 180) * var->rot) * PLAYER_SPEED;
@@ -27,8 +27,8 @@ void	move_up(t_cub *var)
 
 void	move_down(t_cub *var)
 {
-	float dx;
-	float dy;
+	float	dx;
+	float	dy;
 
 	ft_draw_player(var, 0);
 	dx = cos((M_PI / 180) * var->rot) * PLAYER_SPEED;
@@ -40,8 +40,8 @@ void	move_down(t_cub *var)
 
 void	move_left(t_cub *var)
 {
-	float dx;
-	float dy;
+	float	dx;
+	float	dy;
 
 	ft_draw_player(var, 0);
 	dx = cos((M_PI / 180) * var->rot) * PLAYER_SPEED;
@@ -53,8 +53,8 @@ void	move_left(t_cub *var)
 
 void	move_right(t_cub *var)
 {
-	float dx;
-	float dy;
+	float	dx;
+	float	dy;
 
 	ft_draw_player(var, 0);
 	dx = cos((M_PI / 180) * var->rot) * PLAYER_SPEED;

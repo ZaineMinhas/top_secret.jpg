@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/08 14:55:56 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:46:29 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct s_imglist
 {
 	void	*img;
 	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }				t_img;
 
 typedef struct s_texturelist
@@ -44,9 +44,9 @@ typedef struct s_texturelist
 typedef struct s_colorlist
 {
 	char	*s;
-	int	*r;
-	int	*f;
-	int	*c;
+	int		*r;
+	int		*f;
+	int		*c;
 }				t_col;
 
 typedef struct s_movelist
@@ -60,7 +60,7 @@ typedef struct s_movelist
 
 }				t_move;
 
-typedef struct	s_cublist
+typedef struct s_cublist
 {
 	t_img	*img;
 	t_move	*move;
@@ -97,14 +97,14 @@ typedef struct	s_cublist
 */
 
 void	get_info(t_cub *var);
-int	get_no(char *line, t_cub *var);
-int	get_so(char *line, t_cub *var);
-int	get_we(char *line, t_cub *var);
-int	get_ea(char *line, t_cub *var);
-int	get_r(char *line, t_cub *var);
-int	get_s(char *line, t_cub *var);
-int	get_f(char *line, t_cub *var);
-int	get_c(char *line, t_cub *var);
+int		get_no(char *line, t_cub *var);
+int		get_so(char *line, t_cub *var);
+int		get_we(char *line, t_cub *var);
+int		get_ea(char *line, t_cub *var);
+int		get_r(char *line, t_cub *var);
+int		get_s(char *line, t_cub *var);
+int		get_f(char *line, t_cub *var);
+int		get_c(char *line, t_cub *var);
 
 /*
 **	display fonctions
@@ -119,8 +119,8 @@ void	draw_wall(int wall, int index, int floor, t_cub *var);
 **	key fonctions
 */
 
-int	ft_go(int key, t_cub *var);
-int	ft_close(t_cub *var);
+int		ft_go(int key, t_cub *var);
+int		ft_close(t_cub *var);
 
 /*
 **	look fonctions
@@ -139,12 +139,11 @@ void	move_down(t_cub *var);
 void	move_left(t_cub *var);
 void	move_right(t_cub *var);
 
-
 /*
 **	utils fonctions
 */
 
-int	ft_strlen_remix(char *str);
+int		ft_strlen_remix(char *str);
 void	ft_reset(t_move *move);
 
 #endif
