@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/09 15:21:05 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/09 15:41:45 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ void	get_data(char *line, t_cub *var)
 		get_c(line, var);
 }
 
+void	put_cub(char str, int ***map)
+{
+	if (str == '1')
+		*dest[i][j] = 1;
+	else if (str == '0')
+		*dest[i][j] = 0;
+	else if (str == ' ')
+		*dest[i][j] = 2;
+	else if (str == '\t')
+		*dest[i][j] = 2;
+}
+
 void	cub_map(t_cub *var)
 {
 	t_list	*addr;
@@ -49,16 +61,7 @@ void	cub_map(t_cub *var)
 		dest[i] = (int *)malloc(sizeof(int) * ft_strlen_remix(addr->content));
 		str = addr->content;
 		while (str[++j])
-		{
-			if (str[j] == '1')
-				dest[i][j] = 1;
-			else if (str[j] == '0')
-				dest[i][j] = 0;
-			else if (str[j] == ' ')
-				dest[i][j] = 2;
-			else if (str[j] == '\t')
-				dest[i][j] = 2;
-		}
+			put_cub(str[j], &dest);
 		i++;
 		addr = addr->next;
 	}

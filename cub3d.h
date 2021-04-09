@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/09 14:46:29 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/09 15:42:48 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int		get_r(char *line, t_cub *var);
 int		get_s(char *line, t_cub *var);
 int		get_f(char *line, t_cub *var);
 int		get_c(char *line, t_cub *var);
+void	put_cub(char str, int ***map);
 
 /*
 **	display fonctions
