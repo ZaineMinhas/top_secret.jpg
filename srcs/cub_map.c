@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/15 16:10:11 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/15 17:32:36 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,15 @@ void	cub_map(t_cub *var)
 	i = 0;
 	addr = var->map;
 	var->int_map = (int **)malloc(sizeof(int *) * ft_lstsize(var->map));
+	if (!var->int_map)
+		exit(1);
 	while (addr)
 	{
+		printf("nik\n");
 		j = -1;
 		var->int_map[i] = (int *)malloc(sizeof(int) * ft_strlen(addr->content));
+		if (!var->int_map[i])
+			exit(1);
 		str = addr->content;
 		while (str[++j])
 			put_cub(str[j], &var->int_map, i, j);
@@ -81,6 +86,8 @@ void	cub_info(char *argv, t_cub *var)
 
 	i = 0;
 	fd = open(argv, O_RDONLY);
+	if (!fd)
+		exit(1);
 	while (get_next_line(fd, &line))
 	{
 		if (i < 8)
