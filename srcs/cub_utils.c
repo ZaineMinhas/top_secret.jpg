@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/09 15:22:02 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/15 16:45:07 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,17 @@ void	ft_reset(t_move *move)
 	move->right = 0;
 }
 
-int	ft_strlen_remix(char *str)
+int		intlen(int n)
+{
+	int	len;
+
+	len = 0;
+	while (n /= 10)
+		len++;
+	return (++len);
+}
+
+/*int	ft_strlen_remix(char *str)
 {
 	int	i;
 
@@ -37,4 +47,4 @@ int	ft_strlen_remix(char *str)
 			i++;
 	}
 	return (i);
-}
+}*/

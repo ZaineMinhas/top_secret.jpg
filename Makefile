@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/19 15:14:41 by zminhas           #+#    #+#              #
-#    Updated: 2021/03/29 15:20:55 by zminhas          ###   ########.fr        #
+#    Updated: 2021/04/15 16:48:41 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRCS	=	cub3d.c\
 			srcs/cub_info.c\
 			srcs/cub_key.c\
 			srcs/cub_look.c\
+			srcs/cub_map.c\
 			srcs/cub_move.c\
+			srcs/cub_texture_info.c\
+			srcs/cub_texture2_info.c\
 			srcs/cub_utils.c\
 			gnl/get_next_line_utils.c\
 			gnl/get_next_line.c
@@ -41,6 +44,8 @@ LIB_PATH	=	./libft
 
 $(NAME):		$(OBJS)
 				@make -C $(LIB_PATH)
+				@make bonus -C $(LIB_PATH)
+				@cp -r $(LIB_PATH)/libft.a ./cub3d.a
 				@ar -rcs $(NAME) $(OBJS)
 				@gcc -lmlx -framework OpenGL -framework AppKit $(NAME)
 				@echo "${GREEN}cub3d.a created !${RESET}"

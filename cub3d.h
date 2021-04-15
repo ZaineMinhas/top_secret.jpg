@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/09 15:42:48 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/15 16:38:25 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ typedef struct s_cublist
 */
 
 void	get_info(t_cub *var);
+void	get_data(char *line, t_cub *var);
 int		get_no(char *line, t_cub *var);
 int		get_so(char *line, t_cub *var);
 int		get_we(char *line, t_cub *var);
@@ -105,7 +106,14 @@ int		get_r(char *line, t_cub *var);
 int		get_s(char *line, t_cub *var);
 int		get_f(char *line, t_cub *var);
 int		get_c(char *line, t_cub *var);
-void	put_cub(char str, int ***map);
+
+/*
+**	map info
+*/
+
+void	cub_info(char *argv, t_cub *var);
+void	cub_map(t_cub *var);
+void	put_cub(char str, int ***dest,int i,int j);
 
 /*
 **	display fonctions
@@ -144,6 +152,7 @@ void	move_right(t_cub *var);
 **	utils fonctions
 */
 
+int		intlen(int n);
 int		ft_strlen_remix(char *str);
 void	ft_reset(t_move *move);
 
