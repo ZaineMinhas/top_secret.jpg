@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/09 15:22:31 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/18 18:06:34 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,33 @@ void	ft_draw_player(t_cub *var, int color)
 	mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img->img, 0, 0);
 }
 
-void	draw_wall(int wall, int index, int floor, t_cub *var)
+void	draw_wall(t_cub *var, int wall, int x, int y)
 {
-	int	x;
-	int	y;
-	int	y_bis;
+	int	i;
+	int	j;
 
-	x = 0;
-	y = 0;
-	if (wall)
+	if (!wall)
+		return ;
+	i = -1;
+	while (++i < WALL_SIZE)
 	{
-		y_bis = y;
-		while (x++ < WALL_SIZE)
-		{
-			y = y_bis;
-			while (y++ < WALL_SIZE)
-			{
-				ft_draw_pixel(var->img, x + index * 50,
-					y + floor * 50, 0xFF5722);
-			}
-		}
+		j = -1;
+		while (++j < WALL_SIZE)
+			ft_draw_pixel(var->img, x * WALL_SIZE + i, y * WALL_SIZE + j, 0xFF5722);
 	}
 	mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img->img, 0, 0);
+}
+
+void	draw_map(t_cub *var)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < var->map_x)
+	{
+		j = -1;
+		while (++j < var->map_y)
+			draw_wall(var, var->int_map[i][j], i, j);
+	}
 }

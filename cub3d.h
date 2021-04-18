@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/15 16:38:25 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/18 18:00:01 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_cublist
 	float	p_y;
 	int		rot;
 	int		**int_map;
+	int		map_x;
+	int		map_y;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }				t_cub;
@@ -84,7 +86,7 @@ typedef struct s_cublist
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_ESC 53
-# define PLAYER_SIZE 30
+# define PLAYER_SIZE 20
 # define PLAYER_SPEED 10
 # define ROT_SPEED 5
 # define WALL_SIZE 50
@@ -113,16 +115,17 @@ int		get_c(char *line, t_cub *var);
 
 void	cub_info(char *argv, t_cub *var);
 void	cub_map(t_cub *var);
-void	put_cub(char str, int ***dest,int i,int j);
+void	put_cub(int **map, int i, int o, char c);
 
 /*
 **	display fonctions
 */
 
 void	ft_draw_pixel(t_img *img, int x, int y, int color);
+void	draw_map(t_cub *var);
+void	draw_wall(t_cub *var, int wall, int x, int y);
 void	ft_draw_player(t_cub *var, int color);
 void	ft_line(t_cub *var, float rot, int color);
-void	draw_wall(int wall, int index, int floor, t_cub *var);
 
 /*
 **	key fonctions

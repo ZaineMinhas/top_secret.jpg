@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/15 17:32:36 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/18 18:30:26 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,49 +32,52 @@ void	get_data(char *line, t_cub *var)
 		get_c(line, var);
 }
 
-void	put_cub(char str, int ***dest,int i,int j)
+void	put_cub(int **map, int i, int o, char c)
 {
-	if (str == '1')
-		*dest[i][j] = 1;
-	else if (str == '0')
-		*dest[i][j] = 0;
-	else if (str == ' ')
-		*dest[i][j] = 2;
-	else if (str == '\t')
-		*dest[i][j] = 2;
+	if (ft_isdigit(c))
+		map[o][i] = (int)c - '0';
+	else if (c == ' ' || c == '\t')
+		map[o][i] = 0;
+	else if (c == 'N')
+		map[o][i] = 99;
 }
 
 void	cub_map(t_cub *var)
 {
-	t_list	*addr;
 	char	*str;
 	int		i;
 	int		j;
+	int		o;
 
-	i = 0;
-	addr = var->map;
-	var->int_map = (int **)malloc(sizeof(int *) * ft_lstsize(var->map));
+	var->map_y = ft_lstsize(var->map);
+	var->map_x = 0;
+	var->int_map = (int **)malloc(sizeof(int *) * var->map_y);
 	if (!var->int_map)
 		exit(1);
-	while (addr)
+	o = -1;
+	while (var->map)
 	{
-		printf("nik\n");
-		j = -1;
-		var->int_map[i] = (int *)malloc(sizeof(int) * ft_strlen(addr->content));
+		o++;
+		i = -1;
+		j = ft_strlen(var->map->content);
+		if (j > var->map_x)
+				var->map_x =j;
+		var->int_map[o] = (int *)ft_calloc(sizeof(int), j);
 		if (!var->int_map[i])
 			exit(1);
-		str = addr->content;
-		while (str[++j])
-			put_cub(str[j], &var->int_map, i, j);
-		i++;
-		addr = addr->next;
+		str = var->map->content;
+		while (++i < j)
+			put_cub(var->int_map, i, o, str[i]);
+			//var->int_map[o][i] = (int)str[i] - '0';
+		var->map = var->map->next;
 	}
 	i = -1;
-	while (var->int_map[++i])
+	while (++i < var->map_x)
 	{
 		j = -1;
-		while (var->int_map[i][++j] != '\n')
-			printf("%d", var->int_map[i][j]);
+		while (++j < var->map_y)
+			printf("%d", var->int_map[j][i]);
+		printf("\n");
 	}
 }
 
@@ -93,7 +96,10 @@ void	cub_info(char *argv, t_cub *var)
 		if (i < 8)
 			get_data(line, var);
 		else
-			ft_lstadd_back(&var->map, ft_lstnew(line));
+		{
+			if (ft_isdigit(line[0]) || line[0] == ' ' || line[0] == '\t')
+				ft_lstadd_back(&var->map, ft_lstnew(line));
+		}
 		i++;
 	}
 	cub_map(var);
