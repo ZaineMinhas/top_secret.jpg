@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/18 18:00:01 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/19 15:48:17 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ typedef struct s_texturelist
 typedef struct s_colorlist
 {
 	char	*s;
-	int		*r;
-	int		*f;
-	int		*c;
+	int		r[2];
+	int		f[3];
+	int		c[3];
 }				t_col;
 
 typedef struct s_movelist
@@ -116,6 +116,7 @@ int		get_c(char *line, t_cub *var);
 void	cub_info(char *argv, t_cub *var);
 void	cub_map(t_cub *var);
 void	put_cub(int **map, int i, int o, char c);
+int		*int_line(t_cub *var);
 
 /*
 **	display fonctions

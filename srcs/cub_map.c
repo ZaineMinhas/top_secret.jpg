@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/18 18:30:26 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/19 16:00:59 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,45 +40,58 @@ void	put_cub(int **map, int i, int o, char c)
 		map[o][i] = 0;
 	else if (c == 'N')
 		map[o][i] = 99;
+	else if (c == '\n')
+		return ;
+}
+
+int		*int_line(t_cub *var)
+{
+	char	*str;
+	int		*map_line;
+	int		i;
+
+	i = ft_strlen(var->map->content) + 1;
+	if (i > var->map_x)
+		var->map_x = i;
+	map_line = (int *)malloc(sizeof(int) * i);
+	if (!map_line)
+		exit(1);
+	str = var->map->content;
+	while (i--)
+	{
+		if (str[i] == '\t' || str[i] == ' ')
+			map_line[i] = 0;
+		else
+			map_line[i] = (int)str[i] - '0';
+	}
+	return (map_line);
 }
 
 void	cub_map(t_cub *var)
 {
-	char	*str;
-	int		i;
-	int		j;
-	int		o;
+	int	i;
+	int	j;
 
+	i = -1;
 	var->map_y = ft_lstsize(var->map);
-	var->map_x = 0;
 	var->int_map = (int **)malloc(sizeof(int *) * var->map_y);
 	if (!var->int_map)
 		exit(1);
-	o = -1;
-	while (var->map)
+	while (++i < var->map_y)
 	{
-		o++;
-		i = -1;
-		j = ft_strlen(var->map->content);
-		if (j > var->map_x)
-				var->map_x =j;
-		var->int_map[o] = (int *)ft_calloc(sizeof(int), j);
-		if (!var->int_map[i])
-			exit(1);
-		str = var->map->content;
-		while (++i < j)
-			put_cub(var->int_map, i, o, str[i]);
-			//var->int_map[o][i] = (int)str[i] - '0';
+		var->int_map[i] = int_line(var);
 		var->map = var->map->next;
 	}
 	i = -1;
-	while (++i < var->map_x)
+	while (++i < var->map_y)
 	{
 		j = -1;
-		while (++j < var->map_y)
-			printf("%d", var->int_map[j][i]);
+		while (var->int_map[i][++j] != -48)
+			printf("%d", var->int_map[i][j]);
 		printf("\n");
 	}
+	printf("w_map : %d\n", var->map_x);
+	printf("h_map : %d\n", var->map_y);
 }
 
 void	cub_info(char *argv, t_cub *var)
@@ -102,5 +115,11 @@ void	cub_info(char *argv, t_cub *var)
 		}
 		i++;
 	}
+	/*while (var->map)
+	{
+		printf("%s\n", var->map->content);
+		var->map = var->map->next;
+	}*/
+	var->map = var->map->next;
 	cub_map(var);
 }
