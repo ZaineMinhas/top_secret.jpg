@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/19 16:00:59 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/26 17:08:51 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		*int_line(t_cub *var)
 void	cub_map(t_cub *var)
 {
 	int	i;
-	int	j;
+	//int	j;
 
 	i = -1;
 	var->map_y = ft_lstsize(var->map);
@@ -82,7 +82,7 @@ void	cub_map(t_cub *var)
 		var->int_map[i] = int_line(var);
 		var->map = var->map->next;
 	}
-	i = -1;
+	/*i = -1;
 	while (++i < var->map_y)
 	{
 		j = -1;
@@ -92,6 +92,7 @@ void	cub_map(t_cub *var)
 	}
 	printf("w_map : %d\n", var->map_x);
 	printf("h_map : %d\n", var->map_y);
+	*/
 }
 
 void	cub_info(char *argv, t_cub *var)

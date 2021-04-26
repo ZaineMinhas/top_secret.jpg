@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/19 13:04:33 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/26 16:57:49 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(int argc, char **argv)
 	var.rot = 90;
 	get_info(&var);
 	cub_info(argv[1], &var);
+	draw_map(&var);
 	ft_draw_player(&var, 0xFF00FF);
 	mlx_hook(var.win_ptr, 2, 1L<<0, ft_go, &var);
 	mlx_hook(var.win_ptr, 17, 1L<<17, ft_close, &var);

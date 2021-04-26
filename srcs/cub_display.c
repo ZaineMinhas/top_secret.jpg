@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/18 18:06:34 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/26 17:15:35 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	draw_wall(t_cub *var, int wall, int x, int y)
 	int	i;
 	int	j;
 
-	if (!wall)
+	if (!wall || wall == -48)
 		return ;
 	i = -1;
 	while (++i < WALL_SIZE)
@@ -88,10 +88,16 @@ void	draw_map(t_cub *var)
 	int	j;
 
 	i = -1;
-	while (++i < var->map_x)
+	printf("map_x = %d\n", var->map_x);
+	printf("map_y = %d\n", var->map_y);
+	while (++i < var->map_y)
 	{
 		j = -1;
-		while (++j < var->map_y)
-			draw_wall(var, var->int_map[i][j], i, j);
+		while (++j < var->map_x)
+		{
+			draw_wall(var, var->int_map[i][j], j, i);
+			//printf("%d", var->int_map[i][j]);
+		}
+		printf("\n");
 	}
 }

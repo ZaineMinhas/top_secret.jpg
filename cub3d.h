@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/19 15:48:17 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/26 17:14:38 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_cublist
 # define PLAYER_SIZE 20
 # define PLAYER_SPEED 10
 # define ROT_SPEED 5
-# define WALL_SIZE 50
+# define WALL_SIZE 60
 # define LINE_LINE 1
 # define LINE_NUMBER 35
 # define LINE_SIZE 1500
