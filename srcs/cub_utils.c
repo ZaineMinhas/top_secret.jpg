@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/15 16:45:07 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/27 16:54:52 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ void	ft_reset(t_move *move)
 	move->d = 0;
 	move->left = 0;
 	move->right = 0;
+}
+
+int		ft_iswall(t_cub *var, int x, int y)
+{
+	if (var->int_map[y / WALL_SIZE][x / WALL_SIZE])
+		return (1);
+	return (0);
 }
 
 int		intlen(int n)

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/26 17:14:38 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:52:44 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_cublist
 # define PLAYER_SIZE 20
 # define PLAYER_SPEED 10
 # define ROT_SPEED 5
-# define WALL_SIZE 60
+# define WALL_SIZE 65
 # define LINE_LINE 1
 # define LINE_NUMBER 35
 # define LINE_SIZE 1500
@@ -159,5 +159,6 @@ void	move_right(t_cub *var);
 int		intlen(int n);
 int		ft_strlen_remix(char *str);
 void	ft_reset(t_move *move);
+int		ft_iswall(t_cub *var, int x, int y);
 
 #endif

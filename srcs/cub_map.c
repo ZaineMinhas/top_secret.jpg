@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/26 17:08:51 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:57:49 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,11 +116,6 @@ void	cub_info(char *argv, t_cub *var)
 		}
 		i++;
 	}
-	/*while (var->map)
-	{
-		printf("%s\n", var->map->content);
-		var->map = var->map->next;
-	}*/
 	var->map = var->map->next;
 	cub_map(var);
 }

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/26 17:15:35 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/04/27 17:57:25 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_line(t_cub *var, float rot, int color)
 	i = -1;
 	dx = 0;
 	dy = 0;
-	while (++i < LINE_SIZE)
+	while (++i < LINE_SIZE && !ft_iswall(var, var->p_x + dx, var->p_y - dy))
 	{
 		dx += cos(((float)var->rot + rot) * (M_PI / 180));
 		dy += sin(((float)var->rot + rot) * (M_PI / 180));
@@ -72,11 +72,11 @@ void	draw_wall(t_cub *var, int wall, int x, int y)
 
 	if (!wall || wall == -48)
 		return ;
-	i = -1;
-	while (++i < WALL_SIZE)
+	i = -0;
+	while (++i < WALL_SIZE - 1)
 	{
-		j = -1;
-		while (++j < WALL_SIZE)
+		j = +0;
+		while (++j < WALL_SIZE - 1)
 			ft_draw_pixel(var->img, x * WALL_SIZE + i, y * WALL_SIZE + j, 0xFF5722);
 	}
 	mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img->img, 0, 0);
@@ -88,16 +88,10 @@ void	draw_map(t_cub *var)
 	int	j;
 
 	i = -1;
-	printf("map_x = %d\n", var->map_x);
-	printf("map_y = %d\n", var->map_y);
 	while (++i < var->map_y)
 	{
 		j = -1;
 		while (++j < var->map_x)
-		{
 			draw_wall(var, var->int_map[i][j], j, i);
-			//printf("%d", var->int_map[i][j]);
-		}
-		printf("\n");
 	}
 }
