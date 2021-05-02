@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/27 17:57:49 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/02 16:52:51 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ void	put_cub(int **map, int i, int o, char c)
 		return ;
 }
 
-int		*int_line(t_cub *var)
+int		*int_line(t_cub *var, int j)
 {
 	char	*str;
 	int		*map_line;
 	int		i;
 
 	i = ft_strlen(var->map->content) + 1;
+	var->map_line[j] = i - 1;
 	if (i > var->map_x)
 		var->map_x = i;
 	map_line = (int *)malloc(sizeof(int) * i);
@@ -75,11 +76,12 @@ void	cub_map(t_cub *var)
 	i = -1;
 	var->map_y = ft_lstsize(var->map);
 	var->int_map = (int **)malloc(sizeof(int *) * var->map_y);
-	if (!var->int_map)
+	var->map_line = (int *)malloc(sizeof(int) * var->map_y);
+	if (!var->int_map || !var->map_line)
 		exit(1);
 	while (++i < var->map_y)
 	{
-		var->int_map[i] = int_line(var);
+		var->int_map[i] = int_line(var, i);
 		var->map = var->map->next;
 	}
 	/*i = -1;
@@ -88,11 +90,10 @@ void	cub_map(t_cub *var)
 		j = -1;
 		while (var->int_map[i][++j] != -48)
 			printf("%d", var->int_map[i][j]);
-		printf("\n");
+		printf("|%d|\n", var->map_line[i]);
 	}
 	printf("w_map : %d\n", var->map_x);
-	printf("h_map : %d\n", var->map_y);
-	*/
+	printf("h_map : %d\n", var->map_y);*/
 }
 
 void	cub_info(char *argv, t_cub *var)

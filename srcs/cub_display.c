@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/27 17:57:25 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/02 17:55:26 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_line(t_cub *var, float rot, int color)
 void	ft_draw_player(t_cub *var, int color)
 {
 	float	i;
-	int		j;
+	float	j;
 
 	i = -1;
 	while (++i < PLAYER_SIZE)
@@ -50,8 +50,8 @@ void	ft_draw_player(t_cub *var, int color)
 		j = -1;
 		while (++j < PLAYER_SIZE)
 		{
-			ft_draw_pixel(var->img, var->p_x + i - PLAYER_SIZE / 2,
-				var->p_y + j - PLAYER_SIZE / 2, color);
+			ft_draw_pixel(var->img, var->p_x * WALL_SIZE + i - PLAYER_SIZE / 2,
+				var->p_y * WALL_SIZE + j - PLAYER_SIZE / 2, color);
 		}
 	}
 	if (color)
@@ -91,7 +91,7 @@ void	draw_map(t_cub *var)
 	while (++i < var->map_y)
 	{
 		j = -1;
-		while (++j < var->map_x)
+		while (++j < var->map_line[i])
 			draw_wall(var, var->int_map[i][j], j, i);
 	}
 }

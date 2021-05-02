@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/04/27 17:52:44 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/02 18:14:42 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_cublist
 	float	p_y;
 	int		rot;
 	int		**int_map;
+	int		*map_line;
 	int		map_x;
 	int		map_y;
 	void	*mlx_ptr;
@@ -86,10 +87,10 @@ typedef struct s_cublist
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_ESC 53
-# define PLAYER_SIZE 20
-# define PLAYER_SPEED 10
+# define PLAYER_SIZE 22
+# define PLAYER_SPEED 0.15
 # define ROT_SPEED 5
-# define WALL_SIZE 65
+# define WALL_SIZE 66
 # define LINE_LINE 1
 # define LINE_NUMBER 35
 # define LINE_SIZE 1500
@@ -116,7 +117,7 @@ int		get_c(char *line, t_cub *var);
 void	cub_info(char *argv, t_cub *var);
 void	cub_map(t_cub *var);
 void	put_cub(int **map, int i, int o, char c);
-int		*int_line(t_cub *var);
+int		*int_line(t_cub *var, int j);
 
 /*
 **	display fonctions
