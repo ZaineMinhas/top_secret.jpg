@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/02 18:14:42 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:18:01 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ typedef struct s_cublist
 	t_tex	*tex;
 	t_col	*col;
 	t_list	*map;
-	float	p_x;
-	float	p_y;
+	double	p_x;
+	double	p_y;
 	int		rot;
+	int		player;
 	int		**int_map;
 	int		*map_line;
 	int		map_x;
@@ -93,7 +94,7 @@ typedef struct s_cublist
 # define WALL_SIZE 66
 # define LINE_LINE 1
 # define LINE_NUMBER 35
-# define LINE_SIZE 1500
+# define LINE_SIZE 150
 
 /*
 **	info fonctions
@@ -115,7 +116,7 @@ int		get_c(char *line, t_cub *var);
 */
 
 void	cub_info(char *argv, t_cub *var);
-void	cub_map(t_cub *var);
+void	player_pos(t_cub *var, char c, int x, int y);
 void	put_cub(int **map, int i, int o, char c);
 int		*int_line(t_cub *var, int j);
 

@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:14:59 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/02 17:55:33 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:13:04 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		exit(1);
-	var.p_x = 1.5;
-	var.p_y = 2.5;
-	var.rot = 90;
+	var.player = 0;
 	get_info(&var);
 	cub_info(argv[1], &var);
 	draw_map(&var);

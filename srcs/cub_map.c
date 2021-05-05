@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:27:38 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/02 16:52:51 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:24:39 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,24 @@ void	get_data(char *line, t_cub *var)
 		get_c(line, var);
 }
 
-void	put_cub(int **map, int i, int o, char c)
+void	player_pos(t_cub *var, char c, int x, int y)
 {
-	if (ft_isdigit(c))
-		map[o][i] = (int)c - '0';
-	else if (c == ' ' || c == '\t')
-		map[o][i] = 0;
+	if (var->player)
+	{
+		printf("trop de joueurs\n");
+		exit(1);
+	}
+	var->player++;
+	var->p_x = x + 0.5;
+	var->p_y = y + 0.5;
+	if (c == 'E')
+		var->rot = 0;
 	else if (c == 'N')
-		map[o][i] = 99;
-	else if (c == '\n')
-		return ;
+		var->rot = 90;
+	else if (c == 'W')
+		var->rot = 180;
+	else if (c == 'S')
+		var->rot = 270;
 }
 
 int		*int_line(t_cub *var, int j)
@@ -62,6 +70,11 @@ int		*int_line(t_cub *var, int j)
 	{
 		if (str[i] == '\t' || str[i] == ' ')
 			map_line[i] = 0;
+		else if (str[i] == 'N' || str[i] == 'S' || str[i] == 'W' || str[i] == 'E')
+		{
+			map_line[i] = 0;
+			player_pos(var, str[i], i, j);
+		}
 		else
 			map_line[i] = (int)str[i] - '0';
 	}

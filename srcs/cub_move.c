@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 15:32:52 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/02 18:10:31 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:49:36 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	move_up(t_cub *var)
 	dy = sin((M_PI / 180) * var->rot) * PLAYER_SPEED;
 	if (!ft_iswall(var, var->p_x + dx, var->p_y - dy))
 	{
-		ft_draw_player(var, 0);
 		var->p_x += dx;
 		var->p_y -= dy;
-		ft_draw_player(var, 0xFF00FF);
 	}
 }
 
@@ -37,10 +35,8 @@ void	move_down(t_cub *var)
 	dy = sin((M_PI / 180) * var->rot) * PLAYER_SPEED;
 	if (!ft_iswall(var, var->p_x - dx, var->p_y + dy))
 	{
-		ft_draw_player(var, 0);
 		var->p_x -= dx;
 		var->p_y += dy;
-		ft_draw_player(var, 0xFF00FF);
 	}
 }
 
@@ -53,10 +49,8 @@ void	move_left(t_cub *var)
 	dy = sin((M_PI / 180) * var->rot) * PLAYER_SPEED;
 	if (!ft_iswall(var, var->p_x - dy, var->p_y - dx))
 	{
-		ft_draw_player(var, 0);
 		var->p_x -= dy;
 		var->p_y -= dx;
-		ft_draw_player(var, 0xFF00FF);
 	}
 }
 
@@ -69,10 +63,8 @@ void	move_right(t_cub *var)
 	dy = sin((M_PI / 180) * var->rot) * PLAYER_SPEED;
 	if (!ft_iswall(var, var->p_x + dy, var->p_y + dx))
 	{
-		ft_draw_player(var, 0);
 		var->p_x += dy;
 		var->p_y += dx;
-		ft_draw_player(var, 0xFF00FF);
 	}
 }
 

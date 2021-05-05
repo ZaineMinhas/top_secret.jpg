@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:11:05 by zminhas           #+#    #+#             */
-/*   Updated: 2021/03/29 15:07:03 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/05 18:56:19 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_close(t_cub *var)
 int	ft_go(int key, t_cub *var)
 {
 	ft_reset(var->move);
+	ft_draw_player(var, 0);
 	if (key == KEY_ESC)
 		exit(1);
 	if (key == KEY_LEFT)
@@ -41,5 +42,7 @@ int	ft_go(int key, t_cub *var)
 	if (var->move->right)
 		look_right(var);
 	move_check(var);
+	draw_map(var);
+	ft_draw_player(var, 0xFF00FF);
 	return (0);
 }
