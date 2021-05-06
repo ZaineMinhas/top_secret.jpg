@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 18:39:50 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/05 18:53:18 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/06 19:09:53 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_line(t_cub *var, float rot, int color)
 	i = -1;
 	dx = 0;
 	dy = 0;
-	while (++i < LINE_SIZE /*&& !ft_iswall(var, var->p_x * WALL_SIZE + dx, var->p_y * WALL_SIZE - dy)*/)
+	while (++i < LINE_SIZE)
 	{
 		dx += cos(((double)var->rot + rot) * (M_PI / 180));
 		dy += sin(((double)var->rot + rot) * (M_PI / 180));
@@ -79,7 +79,6 @@ void	draw_wall(t_cub *var, int wall, int x, int y)
 		while (++j < WALL_SIZE - 1)
 			ft_draw_pixel(var->img, x * WALL_SIZE + i, y * WALL_SIZE + j, 0xFF5722);
 	}
-	//mlx_put_image_to_window(var->mlx_ptr, var->win_ptr, var->img->img, 0, 0);
 }
 
 void	draw_map(t_cub *var)

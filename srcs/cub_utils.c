@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:06:20 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/02 18:09:40 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/06 18:41:01 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,27 @@ int		intlen(int n)
 	while (n /= 10)
 		len++;
 	return (++len);
+}
+
+double	bet_0_1(double	nb)
+{
+	if (nb > 0)
+	{
+		while (nb > 1)
+			nb--;
+		return (nb);
+	}
+	return (nb);
+}
+
+double	player_wall_dist(t_cub *var)
+{
+	double	sideDist[2];
+
+	sideDist[0]	= bet_0_1(var->p_x) / cos((double)var->rot);
+	sideDist[1] = bet_0_1(var->p_y) / cos(90 - (double)var->rot);
+	printf("|sideDist_x = %f sideDist_y = %f|\n", sideDist[0], sideDist[1]);
+	return (0);
 }
 
 /*int	ft_strlen_remix(char *str)
