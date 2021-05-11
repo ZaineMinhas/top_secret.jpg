@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 14:11:05 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/06 18:44:23 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/11 17:09:56 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_go(int key, t_cub *var)
 	move_check(var);
 	draw_map(var);
 	ft_draw_player(var, 0xFF00FF);
-	player_wall_dist(var);
+	//player_wall_dist(var);
 	//printf("|x = %f y = %f|\n", between_zero_one(var->p_x), between_zero_one(var->p_y));
 	return (0);
 }

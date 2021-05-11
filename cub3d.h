@@ -6,7 +6,7 @@
 /*   By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:53:01 by zminhas           #+#    #+#             */
-/*   Updated: 2021/05/06 18:40:24 by zminhas          ###   ########.fr       */
+/*   Updated: 2021/05/11 16:33:41 by zminhas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	ft_draw_pixel(t_img *img, int x, int y, int color);
 void	draw_map(t_cub *var);
 void	draw_wall(t_cub *var, int wall, int x, int y);
 void	ft_draw_player(t_cub *var, int color);
+void	line(t_cub *var, double j, int color);
 void	ft_line(t_cub *var, float rot, int color);
 
 /*

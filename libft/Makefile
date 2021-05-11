@@ -6,7 +6,7 @@
 #    By: zminhas <zminhas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 18:35:49 by zminhas           #+#    #+#              #
-#    Updated: 2021/03/25 14:41:24 by zminhas          ###   ########.fr        #
+#    Updated: 2021/05/11 17:04:21 by zminhas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,12 +73,10 @@ NAME	=	libft.a
 
 .c.o:
 			@gcc -Wall -Wextra -Werror -c -I./ $< -o ${<:.c=.o}
-			@echo "${LIGHTPURPLE}Compilation of :$<${RESET}"
 
 $(NAME):	${OBJS}
 			@ar -rcs ${NAME} ${OBJS}
 			@ranlib ${NAME}
-			@echo "${GREEN}Library created !${RESET}"
 
 all:		${NAME}
 
@@ -94,7 +92,7 @@ fclean:
 bonus:		${OBJS_BONUS}
 			@ar -rcs ${NAME} ${OBJS_BONUS}
 			@ranlib ${NAME}
-			@echo "${PURPLE}Bonus !${RESET}"
+			@echo "${GREEN}Libft Created !${RESET}"
 
 full:		${OBJS} ${OBJS_BONUS}
 			@ar -rcs ${NAME} ${OBJS} ${OBJS_BONUS}
